@@ -31,7 +31,7 @@ def _compilation_database_impl(ctx):
     compilation_db = depset(transitive = compilation_db)
     all_headers = depset(transitive = all_headers)
 
-    exec_root = ctx.attr.output_base + "/execroot/" + ctx.workspace_name
+    exec_root = ctx.attr.output_base  #+ "/execroot/" + ctx.workspace_name
 
     content = json.encode(compilation_db.to_list())
     content = content.replace("__EXEC_ROOT__", exec_root)
